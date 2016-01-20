@@ -3,15 +3,19 @@ Helcio Macedo
 Checksum Verifier + Self Updater
 -----------------------------------------------------------
 Script used to compare if local file its the same as remote
-If not the same.. Download and write the new file on local directory
+If not the same.. Download and re-write file on local directory
+
+Dont ask for version.. this script will update itself too! ;)
 """
 
+import os
 import hashlib
 import urllib2
 import optparse
 
 # Remote address to file
-remote_url = 'https://raw.githubusercontent.com/neomacedo/Area51/master/arquivo_teste.txt'
+remote_url = 'https://raw.githubusercontent.com/neomacedo/ScriptsUteis/master/Python/self_updater.py'
+local_url = os.path.basename(__file__)
 
 
 # Method who will return md5 Checksum [Local]
@@ -55,10 +59,10 @@ def update_local_file():
 
         data = remote.read()
 
-        open(os.path.basename(__file__), 'w+').write(data)
+        open(local_url, 'w+').write(data)
 
         print 'File updated'
-        print 'MD5 Local: ' + get_local_md5_sum(os.path.basename(__file__))
+        print 'MD5 Local: ' + get_local_md5_sum(local_url)
 
     except Exception as ex:
         print 'Failed to update file! \n Exception: ' + str(ex.message)
@@ -66,20 +70,13 @@ def update_local_file():
 
 # Main Method
 if __name__ == '__main__':
-    print 'MD5 Local: ' + get_local_md5_sum(os.path.basename(__file__))
+    print 'MD5 Local: ' + get_local_md5_sum(local_url)
     print 'MD5 Remote: ' + get_remote_md5_sum(remote_url)
 
-    if get_local_md5_sum(os.path.basename(__file__)) == get_remote_md5_sum(remote_url):
+    if get_local_md5_sum(local_url) == get_remote_md5_sum(remote_url):
         print 'File up-to-date'
     else:
         print 'Updating File....'
         update_local_file()
-
-    # If you want to open your new file (e.g: gateway.py) .. uncomment these lines:
-    # import os
-    # os.system("gateway.py 1")
-    #
-    # Or just import it (if located on the same folder as this)
-    # import gateway
 
 # EOF
