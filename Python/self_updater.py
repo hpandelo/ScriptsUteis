@@ -1,6 +1,6 @@
 """
 Helcio Macedo
-Checksum Verifier + Auto Updater
+Checksum Verifier + Self Updater
 -----------------------------------------------------------
 Script used to compare if local file its the same as remote
 If not the same.. Download and write the new file on local directory
@@ -12,9 +12,6 @@ import optparse
 
 # Remote address to file
 remote_url = 'https://raw.githubusercontent.com/neomacedo/Area51/master/arquivo_teste.txt'
-
-# Local address to the file
-local_url = '../../GitHub/Area51/arquivo_teste.txt'
 
 
 # Method who will return md5 Checksum [Local]
@@ -58,10 +55,10 @@ def update_local_file():
 
         data = remote.read()
 
-        open(local_url, 'w+').write(data)
+        open(os.path.basename(__file__), 'w+').write(data)
 
         print 'File updated'
-        print 'MD5 Local: ' + get_local_md5_sum(local_url)
+        print 'MD5 Local: ' + get_local_md5_sum(os.path.basename(__file__))
 
     except Exception as ex:
         print 'Failed to update file! \n Exception: ' + str(ex.message)
@@ -69,10 +66,10 @@ def update_local_file():
 
 # Main Method
 if __name__ == '__main__':
-    print 'MD5 Local: ' + get_local_md5_sum(local_url)
+    print 'MD5 Local: ' + get_local_md5_sum(os.path.basename(__file__))
     print 'MD5 Remote: ' + get_remote_md5_sum(remote_url)
 
-    if get_local_md5_sum(local_url) == get_remote_md5_sum(remote_url):
+    if get_local_md5_sum(os.path.basename(__file__)) == get_remote_md5_sum(remote_url):
         print 'File up-to-date'
     else:
         print 'Updating File....'
