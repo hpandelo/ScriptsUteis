@@ -1,6 +1,7 @@
 """
 Helcio Macedo
-Checksum Verifier + Auto Updater
+Checksum Verifier v1.0 + Auto Updater v1.0
+https://github.com/neomacedo/ScriptsUteis
 -----------------------------------------------------------
 Script used to compare if local file its the same as remote
 If not the same.. Download and write the new file on local directory

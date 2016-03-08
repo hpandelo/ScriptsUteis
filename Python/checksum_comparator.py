@@ -1,8 +1,9 @@
 """
 Helcio Macedo
-Checksum Verifier
+Checksum Verifier v1.0
+https://github.com/neomacedo/ScriptsUteis
 -----------------------------------------------------------
-Script used to compare if local file its the same as remote
+Script used to compare if local file its the same as remote.
 """
 
 import hashlib

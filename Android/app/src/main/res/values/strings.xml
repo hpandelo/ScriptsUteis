@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">Area 52</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <!-- HOME SCREEN -->
+    <string name="bt_foco_dengue">Fotografar</string>
+    <string name="bt_foco_lixo">Localização</string>
+    <string name="txt_upside_camera">Aponte ao alvo para focar</string>
+    <string name="txt_capture_camera">Imagem capturada</string>
+
+    <!-- MENU ITENS -->
+    <string name="menu_settings">Configurações</string>
+
+    <!-- NAVIGATION ITENS -->
+    <string name="nav_start_screen">Tela Inicial</string>
+    <string name="nav_mayor">Locais</string>
+    <string name="nav_settings">Configurações</string>
+
+    <string name="nav_separator"></string>
+    <string name="nav_share">Compartilhe</string>
+    <string name="nav_contact">Fale Conosco</string>
+    <string name="nav_about">Sobre</string>
+
+    <string name="nav_exit">Sair</string>
+
+
+    <!-- EXIT ALERT -->
+    <string name="ea_title">SAIR DO APLICATIVO</string>
+    <string name="ea_message">Tem certeza que deseja sair do aplicativo?</string>
+    <string name="ea_yes">Sim</string>
+    <string name="ea_no">Não</string>
+
+
+    <!-- MENU ITENS -->
+    <string name="menu1">Câmera</string>
+    <string name="menu2">GPS</string>
+    <string name="menu3">Galeria</string>
+    <string name="menu4">Acelerômetro</string>
+
+</resources>

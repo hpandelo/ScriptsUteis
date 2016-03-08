@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/main_menu"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/menu1"
+            android:icon="@android:drawable/ic_menu_camera"
+            android:fillColor="#FF000000"
+            android:title="@string/menu1" />
+        <item
+            android:id="@+id/menu2"
+            android:icon="@android:drawable/ic_menu_compass"
+            android:fillColor="#FF000000"
+            android:title="@string/menu2" />
+        <item
+            android:id="@+id/menu3"
+            android:icon="@android:drawable/ic_menu_gallery"
+            android:fillColor="#FF000000"
+            android:title="@string/menu3" />
+        <item
+            android:id="@+id/menu4"
+            android:icon="@android:drawable/ic_menu_directions"
+            android:fillColor="#FF000000"
+            android:title="@string/menu4"/>
+        <item
+            android:id="@+id/nav_settings"
+            android:fillColor="#FF000000"
+            android:icon="@android:drawable/ic_menu_manage"
+            android:title="@string/nav_settings" />
+
+    </group>
+    <group android:id="@+id/contact_menu"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_contact"
+            android:icon="@android:drawable/ic_dialog_email"
+            android:fillColor="#FF000000"
+            android:title="@string/nav_contact" />
+        <item
+            android:id="@+id/nav_share"
+            android:icon="@drawable/ic_menu_share"
+            android:fillColor="#FF000000"
+            android:title="@string/nav_share" />
+        <item
+            android:id="@+id/nav_about"
+            android:icon="@android:drawable/ic_menu_help"
+            android:fillColor="#FF000000"
+            android:title="@string/nav_about" />
+
+        <item
+            android:id="@+id/nav_exit"
+            android:icon="@android:drawable/ic_menu_close_clear_cancel"
+            android:fillColor="#FF880000"
+            android:title="@string/nav_exit"
+            android:onClick="fecharApp" />
+
+    </group>
+
+</menu>
