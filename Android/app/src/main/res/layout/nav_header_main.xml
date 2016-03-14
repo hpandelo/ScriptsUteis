@@ -32,7 +32,7 @@
         android:textSize="12dp" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/txt_device_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Área de Testes [Nº 52]"

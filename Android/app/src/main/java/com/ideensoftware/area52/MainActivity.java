@@ -1,6 +1,7 @@
 package com.ideensoftware.area52;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -13,12 +14,15 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.provider.Settings;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.view.menu.MenuView;
+import android.telephony.TelephonyManager;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
@@ -56,10 +60,11 @@ public class MainActivity extends AppCompatActivity
     SurfaceView mPreview;
     public GPS gps;
 
-    public static TextView txtGPS;
+    public static TextView txtGPS, txt_device_id;
     public static ImageView statusGPS;
 
     public static MenuView.ItemView menu4;
+    public static String deviceId = new String("Área de Testes [Nº 52]\nDevice ID: ");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,7 +84,18 @@ public class MainActivity extends AppCompatActivity
 
         statusGPS = (ImageView) findViewById(R.id.statusGPS);
         txtGPS = (TextView) findViewById(R.id.txtGPS);
+        txt_device_id = (TextView) findViewById(R.id.txt_device_id);
 
+        final TelephonyManager mTelephony = (TelephonyManager) getSystemService(
+                Context.TELEPHONY_SERVICE);
+        if (mTelephony.getDeviceId() != null) {
+            deviceId = deviceId + mTelephony.getDeviceId(); //*** use for mobiles
+        } else {
+            deviceId = deviceId + Settings.Secure.getString(getContentResolver(),
+                    Settings.Secure.ANDROID_ID); //*** use for tablets
+        }
+//        txt_device_id.setText(deviceId);
+        Log.d("DEVICE ID",deviceId);
 
 
         /**
@@ -103,6 +119,12 @@ public class MainActivity extends AppCompatActivity
                     && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 ActivityCompat.requestPermissions( this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 129);
                 Log.d("DEBUG","Sem permissão de GPS");
+            }
+            if(ContextCompat.checkSelfPermission( this, Manifest.permission.READ_PHONE_STATE )
+                    != PackageManager.PERMISSION_GRANTED
+                    && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                ActivityCompat.requestPermissions( this, new String[]{Manifest.permission.READ_PHONE_STATE}, 130);
+                Log.d("DEBUG","Sem permissão de Ler Estado do Telefone");
             }
 
         } catch (Exception e){
@@ -171,9 +193,6 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-
-
-
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -206,6 +225,8 @@ public class MainActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
+
+
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -213,7 +234,8 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if(id == R.id.menu4) {
-            startActivity(new Intent(getApplicationContext(), Accelerometer.class));
+            Intent intent = new Intent(this, AccelerometerNew.class);
+            startActivity(intent);
         }
 
 //        if (id == R.id.nav_camera) {
@@ -243,13 +265,13 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onPause() {
         super.onPause();
-        mCamera.stopPreview();
+        if(mCamera != null) mCamera.stopPreview();
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        mCamera.release();
+        if(mCamera != null) mCamera.release();
         Log.d("CAMERA","Destroy");
     }
 

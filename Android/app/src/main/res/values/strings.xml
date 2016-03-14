@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Area 52</string>
+    <string name="title_activity_accelerometer_new">Sensores</string>
+
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -37,6 +39,23 @@
     <string name="menu1">Câmera</string>
     <string name="menu2">GPS</string>
     <string name="menu3">Galeria</string>
-    <string name="menu4">Acelerômetro</string>
+    <string name="menu4">Sensores</string>
+    <string name="title_activity_activity_accelerometer">activity_accelerometer</string>
+    <string name="title_activity_accelerometer">accelerometer</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- SENSOR LABELS -->
+    <string name="label_accelerometer">Acelerômetro</string>
+    <string name="label_gyroscope">Giroscópio</string>
+    <string name="label_linear_acceleration">Aceleração Linear</string>
+
+    <string name="eixo_x">Eixo X:</string>
+    <string name="eixo_y">Eixo Y:</string>
+    <string name="eixo_z">Eixo Z:</string>
+    <string name="accuracy">Precisão:</string>
+    <string name="speed">Velocidade:</string>
+    <string name="accel_fall_speed">Vel. Queda:</string>
+    <string name="title_activity_activity__gps">Activity_GPS</string>
+
 
 </resources>

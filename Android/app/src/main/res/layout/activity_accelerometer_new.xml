@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.ideensoftware.area52.MainActivity">
+    tools:context="com.ideensoftware.area52.AccelerometerNew">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -18,18 +18,28 @@
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
-
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_main" />
+    <include layout="@layout/content_accelerometer_new" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
+        android:id="@+id/fall_float_ico"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        android:src="@android:drawable/ic_dialog_email"
-        android:visibility="gone" />
+        app:backgroundTint="#F00"
+        android:src="@drawable/abc_spinner_mtrl_am_alpha"
+        android:visibility="visible"
+        style="@android:style/TextAppearance.DeviceDefault.Large" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@android:string/ok"
+        android:elevation="16dp"
+        android:textColor="@android:color/white"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </android.support.design.widget.CoordinatorLayout>
