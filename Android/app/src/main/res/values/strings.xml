@@ -40,6 +40,7 @@
     <string name="menu2">GPS</string>
     <string name="menu3">Galeria</string>
     <string name="menu4">Sensores</string>
+    <string name="menu5">Heart Rate Monitor</string>
     <string name="title_activity_activity_accelerometer">activity_accelerometer</string>
     <string name="title_activity_accelerometer">accelerometer</string>
     <string name="action_settings">Settings</string>
@@ -56,6 +57,7 @@
     <string name="speed">Velocidade:</string>
     <string name="accel_fall_speed">Vel. Queda:</string>
     <string name="title_activity_activity__gps">Activity_GPS</string>
+    <string name="title_activity_heart_rate_led">HeartRateLED</string>
 
 
 </resources>

@@ -66,6 +66,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.ideensoftware.area52.MainActivity" />
         </activity>
+        <activity
+            android:name=".HeartRateLED"
+            android:label="@string/title_activity_heart_rate_led"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.ideensoftware.area52.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
