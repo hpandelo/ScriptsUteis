@@ -4,26 +4,27 @@
     <group android:id="@+id/main_menu"
         android:checkableBehavior="single">
         <item
-            android:id="@+id/menu1"
+            android:id="@+id/nav_camera"
             android:icon="@android:drawable/ic_menu_camera"
             android:title="@string/menu1"
             android:tint="#CCCCCC"/>
         <item
-            android:id="@+id/menu2"
+            android:id="@+id/nav_gps"
             android:icon="@android:drawable/ic_menu_compass"
             android:title="@string/menu2"
             android:enabled="false"/>
         <item
-            android:id="@+id/menu3"
+            android:id="@+id/nav_gallery"
             android:icon="@android:drawable/ic_menu_gallery"
             android:title="@string/menu3"
-            android:enabled="false"/>
+            android:enabled="false"
+            android:visible="false"/>
         <item
-            android:id="@+id/menu4"
+            android:id="@+id/nav_sensors"
             android:icon="@android:drawable/ic_menu_directions"
             android:title="@string/menu4"/>
         <item
-            android:id="@+id/menu5"
+            android:id="@+id/nav_heart_rate_monitor"
             android:icon="@drawable/ic_favorite_black_36dp"
             android:title="@string/menu5"
             android:tint="#CCCCCC"/>
@@ -31,7 +32,8 @@
             android:id="@+id/nav_settings"
             android:icon="@android:drawable/ic_menu_manage"
             android:title="@string/nav_settings"
-            android:enabled="false"/>
+            android:enabled="false"
+            android:visible="false"/>
 
     </group>
     <group android:id="@+id/contact_menu"
@@ -40,7 +42,8 @@
             android:id="@+id/nav_contact"
             android:icon="@android:drawable/ic_dialog_email"
             android:title="@string/nav_contact"
-            android:enabled="false"/>
+            android:enabled="false"
+            android:visible="false"/>
         <item
             android:id="@+id/nav_share"
             android:icon="@drawable/ic_menu_share"
@@ -55,8 +58,7 @@
         <item
             android:id="@+id/nav_exit"
             android:icon="@android:drawable/ic_menu_close_clear_cancel"
-            android:title="@string/nav_exit"
-            android:onClick="fecharApp" />
+            android:title="@string/nav_exit" />
 
     </group>
 

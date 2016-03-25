@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="@dimen/nav_header_height"
-    android:background="@drawable/side_nav_bar"
+    android:background="@drawable/bg_ideen_branco"
     android:gravity="bottom"
     android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
@@ -11,33 +11,48 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="115dp"
-        android:layout_height="70dp"
-        android:paddingTop="@dimen/nav_header_vertical_spacing"
-        android:src="@mipmap/ic_launcher"
-        android:layout_gravity="left|bottom"
-        android:layout_marginTop="10dp" />
-
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/nav_header_vertical_spacing"
-        android:text="Helcio R. Macedo Pandelo"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="@color/colorPrimaryDark"
-        android:layout_gravity="left|bottom"
-        android:textStyle="bold"
-        android:textSize="12dp" />
+        android:layout_gravity="bottom">
 
-    <TextView
-        android:id="@+id/txt_device_id"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Área de Testes [Nº 52]"
-        android:textColor="@color/colorPrimaryDark"
-        android:layout_gravity="left|bottom"
-        android:textSize="12dp" />
+        <com.ideensoftware.area52.utils.RoundedImageView
+            android:id="@+id/imageView"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:src="@drawable/img_toasty"
+            android:layout_gravity="bottom|center"
+            android:layout_weight="0"
+            android:adjustViewBounds="false" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:layout_marginLeft="20dp">
+
+            <TextView
+                android:id="@+id/txt_device_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Área de Testes [Nº 52]"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_gravity="left|bottom"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/nav_header_vertical_spacing"
+                android:text="Helcio R. Macedo Pandelo"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_gravity="left|bottom"
+                android:textStyle="bold"
+                android:textSize="12dp" />
+        </LinearLayout>
+    </LinearLayout>
 
 </LinearLayout>

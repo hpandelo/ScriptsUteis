@@ -233,10 +233,24 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if(id == R.id.menu4) {
-            Intent intent = new Intent(this, AccelerometerNew.class);
-            startActivity(intent);
+        switch(id) {
+            case R.id.nav_sensors:
+                startActivity(new Intent(this, AccelerometerNew.class));
+                break;
+
+            case R.id.nav_heart_rate_monitor:
+                startActivity(new Intent(this, HeartRateLED.class));
+                break;
+
+            case R.id.nav_exit:
+                fecharApp();
+                break;
+
+            default:
+                Toast.makeText(this,"Ainda não implementei!",Toast.LENGTH_SHORT).show();
         }
+
+
 
 //        if (id == R.id.nav_camera) {
 //            // Handle the camera action
@@ -279,7 +293,7 @@ public class MainActivity extends AppCompatActivity
 
 
 
-    public void fecharApp(MenuItem item){
+    public void fecharApp(){
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(R.string.ea_title);
