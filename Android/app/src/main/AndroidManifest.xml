@@ -75,6 +75,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.ideensoftware.area52.MainActivity" />
         </activity>
+        <activity android:name=".HeartRateMonitor"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait">
+        </activity>
     </application>
 
 </manifest>

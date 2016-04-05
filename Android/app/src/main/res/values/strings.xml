@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Area 52</string>
+    <string name="default_text">--</string>
     <string name="title_activity_accelerometer_new">Sensores</string>
 
 
@@ -39,8 +40,9 @@
     <string name="menu1">Câmera</string>
     <string name="menu2">GPS</string>
     <string name="menu3">Galeria</string>
-    <string name="menu4">Sensores</string>
-    <string name="menu5">Heart Rate Monitor</string>
+    <string name="menu_sensores">Sensores</string>
+    <string name="menu_heartbeat">Heart Beat Monitor</string>
+    <string name="menu_heartrate">Heart Rate Monitor</string>
     <string name="title_activity_activity_accelerometer">activity_accelerometer</string>
     <string name="title_activity_accelerometer">accelerometer</string>
     <string name="action_settings">Settings</string>
