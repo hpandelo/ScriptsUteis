@@ -86,6 +86,32 @@ public class MainActivity extends AppCompatActivity
         txtGPS = (TextView) findViewById(R.id.txtGPS);
         txt_device_id = (TextView) findViewById(R.id.txt_device_id);
 
+
+        /**
+         * Solicitar permissão em RunTime caso seja Android M
+         */
+        try {
+            if(
+               (    ContextCompat.checkSelfPermission( this, Manifest.permission.CAMERA ) != PackageManager.PERMISSION_GRANTED
+                 || ContextCompat.checkSelfPermission( this, Manifest.permission.WRITE_EXTERNAL_STORAGE ) != PackageManager.PERMISSION_GRANTED
+                 || ContextCompat.checkSelfPermission( this, Manifest.permission.ACCESS_FINE_LOCATION ) != PackageManager.PERMISSION_GRANTED
+                 || ContextCompat.checkSelfPermission( this, Manifest.permission.READ_PHONE_STATE ) != PackageManager.PERMISSION_GRANTED
+               ) && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                ActivityCompat.requestPermissions( this, new String[]{
+                        Manifest.permission.CAMERA,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                        Manifest.permission.ACCESS_FINE_LOCATION,
+                        Manifest.permission.READ_PHONE_STATE
+                }, 127);
+
+            }
+
+        } catch (Exception e){
+            e.printStackTrace();
+            Log.d("ERROR", "Failed to get permissions: " + e.getMessage());
+        }
+
+
         final TelephonyManager mTelephony = (TelephonyManager) getSystemService(
                 Context.TELEPHONY_SERVICE);
         if (mTelephony.getDeviceId() != null) {
@@ -97,40 +123,6 @@ public class MainActivity extends AppCompatActivity
 //        txt_device_id.setText(deviceId);
         Log.d("DEVICE ID",deviceId);
 
-
-        /**
-         * Solicitar permissão em RunTime caso seja Android M
-         */
-        try {
-            if(ContextCompat.checkSelfPermission( this, Manifest.permission.CAMERA )
-                    != PackageManager.PERMISSION_GRANTED
-                    && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                ActivityCompat.requestPermissions( this, new String[]{Manifest.permission.CAMERA}, 127);
-                Log.d("DEBUG","Sem permissão de Câmera");
-            }
-            if(ContextCompat.checkSelfPermission( this, Manifest.permission.WRITE_EXTERNAL_STORAGE )
-                    != PackageManager.PERMISSION_GRANTED
-                    && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                ActivityCompat.requestPermissions( this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 128);
-                Log.d("DEBUG","Sem permissão de External Storage");
-            }
-            if(ContextCompat.checkSelfPermission( this, Manifest.permission.ACCESS_FINE_LOCATION )
-                    != PackageManager.PERMISSION_GRANTED
-                    && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                ActivityCompat.requestPermissions( this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 129);
-                Log.d("DEBUG","Sem permissão de GPS");
-            }
-            if(ContextCompat.checkSelfPermission( this, Manifest.permission.READ_PHONE_STATE )
-                    != PackageManager.PERMISSION_GRANTED
-                    && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                ActivityCompat.requestPermissions( this, new String[]{Manifest.permission.READ_PHONE_STATE}, 130);
-                Log.d("DEBUG","Sem permissão de Ler Estado do Telefone");
-            }
-
-        } catch (Exception e){
-            e.printStackTrace();
-            Log.d("ERROR", "Failed to get permissions: " + e.getMessage());
-        }
 
 
         /**
@@ -230,13 +222,22 @@ public class MainActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
 
-        if(id == R.id.menu4) {
-            Intent intent = new Intent(this, AccelerometerNew.class);
-            startActivity(intent);
+        // Handle navigation view item clicks here.
+        switch(item.getItemId()){
+            case R.id.menu_sensores:
+                startActivity(new Intent(this, AccelerometerNew.class));
+                break;
+
+            case R.id.menu_heartbeat:
+                startActivity(new Intent(this, HeartbeatView.class));
+                break;
+
+            case R.id.menu_heartrate:
+                startActivity(new Intent(this, HeartRateMonitor.class));
+                break;
         }
+
 
 //        if (id == R.id.nav_camera) {
 //            // Handle the camera action

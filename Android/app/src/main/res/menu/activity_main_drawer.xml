@@ -19,13 +19,19 @@
             android:title="@string/menu3"
             android:enabled="false"/>
         <item
-            android:id="@+id/menu4"
+            android:id="@+id/menu_sensores"
             android:icon="@android:drawable/ic_menu_directions"
-            android:title="@string/menu4"/>
+            android:title="@string/menu_sensores"/>
         <item
-            android:id="@+id/menu5"
+            android:id="@+id/menu_heartbeat"
             android:icon="@drawable/ic_favorite_black_36dp"
-            android:title="@string/menu5"
+            android:title="@string/menu_heartbeat"
+            android:tint="#CCCCCC"
+            android:enabled="false"/>
+        <item
+            android:id="@+id/menu_heartrate"
+            android:icon="@drawable/ic_favorite_border_black_36dp"
+            android:title="@string/menu_heartrate"
             android:tint="#CCCCCC"/>
         <item
             android:id="@+id/nav_settings"
